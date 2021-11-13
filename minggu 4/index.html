@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tugas Praktikum 4</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="jquery-3.5.1.min.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <img src="itera.jpg" height="75px">
+        <h1>INSTITUT TEKNOLOGI SUMATERA</h1>
+    </header>
+    <div class="container">
+        <div class="MainContent">
+            <label>Pilih Operasi : </label>
+            <select name="operasi" id="operasi">
+                <option>--Pilih Operasi--</option>
+                <option value="tambah">Tambah Data</option>
+                <option value="ubah">Ubah Data</option>
+                <option value="hapus">Hapus</option>
+            </select>
+            <hr>
+            <div id="formulir"></div>
+        </div>
+        <div class="ContentBerita">
+            <div id="tampil_data"></div>
+        </div>
+    </div>
+    <footer align="right">
+        &copy; 2021 Aldo 119140099 Pemograman Web RA
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            $('#tampil_data').load("tampil.php");
+            $('#operasi').bind('change', function() {
+                var operasi = $("#operasi").val();
+                if (operasi == "tambah") {
+                    $.ajax({
+                        method: 'POST',
+                        url: "tampiltambah.php",
+                        data: {
+                            operasi: operasi
+                        },
+                        success: function(data) {
+                            $('#formulir').html(data);
+                        }
+                    });
+                } else if (operasi == "ubah") {
+                    $.ajax({
+                        method: 'POST',
+                        url: "tampilubah.php",
+                        data: {
+                            operasi: operasi
+                        },
+                        success: function(data) {
+                            $('#formulir').html(data);
+                        }
+                    });
+                } else if (operasi == "hapus") {
+                    $.ajax({
+                        method: 'POST',
+                        url: "tampilhapus.php",
+                        data: {
+                            operasi: operasi
+                        },
+                        success: function(data) {
+                            $('#formulir').html(data);
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        type: 'POST',
+                        url: "index.html",
+                        data: {
+                            operasi: operasi
+                        },
+                        success: function(data) {
+                            $('body').load("index.html")
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
