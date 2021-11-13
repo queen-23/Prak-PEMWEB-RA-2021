@@ -1,0 +1,44 @@
+header {
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+    background-color: rgb(255, 57, 31);
+}
+
+h1 {
+    padding-left: 10px;
+}
+
+footer {
+    background-color: grey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin: 50px 50px 10px 50px;
+    border: 2px solid black;
+}
+
+.MainContent {
+    background-color: gainsboro;
+    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.ContentBerita {
+    background-color: rgb(1, 114, 207);
+    width: 50%;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 500px;
+}
+
+.container {
+    display: flex;
+    height: auto;
+    width: auto;
+}
